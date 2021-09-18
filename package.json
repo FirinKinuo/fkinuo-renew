@@ -12,7 +12,8 @@
     "node-sass": "5.0.0",
     "sass-loader": "10.1.1",
     "vue": "^2.6.11",
-    "vue-router": "^3.5.2"
+    "vue-router": "^3.5.2",
+    "vue-simple-svg": "^2.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
