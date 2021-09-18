@@ -8,22 +8,22 @@
       <v-category-button
           primary_text="About"
           secondary_text="me"
-          secondary_text_color="#39FF71"
+          color_accent="#39FF71"
           icon_name="about_me"/>
       <v-category-button
           primary_text="My"
           secondary_text="projects"
-          secondary_text_color="#00E5F3"
+          color_accent="#00E5F3"
           icon_name="github"/>
       <v-category-button
           primary_text="Some"
           secondary_text="Marisa"
-          secondary_text_color="#FAFF00"
+          color_accent="#FAFF00"
           icon_name="sparkles"/>
       <v-category-button
           primary_text="Contact"
           secondary_text="me"
-          secondary_text_color="#FF25A8"
+          color_accent="#FF25A8"
           icon_name="contact_me"/>
     </div>
   </div>
@@ -34,7 +34,10 @@ import VCategoryButton from "@/components/category-button";
 
 export default {
   name: "v-welcome-page-layout",
-  components: {VCategoryButton}
+  components: {VCategoryButton},
+  beforeCreate() {
+    document.title = "★Welcome★"
+  },
 }
 </script>
 
@@ -42,10 +45,14 @@ export default {
 @import "src/assets/scss/variables";
 
 .welcome-page {
-  padding: 30px 90px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  height: 100%;
+  padding: 0 0 0 40px;
   &__header {
-    margin: 0 0 35px 50px;
+    margin: 0 0 0 50px;
   }
 
   &__title {
@@ -62,7 +69,7 @@ export default {
   &__body {
     display: flex;
     flex-wrap: wrap;
-    gap: 50px 70px;
+    gap: 40px 100px;
   }
 }
 </style>

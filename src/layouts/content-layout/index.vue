@@ -16,5 +16,6 @@ export default {
 .content-layout {
   background-color: #fff;
   width: auto;
+  border-radius: 0 $border-radius $border-radius 0;
 }
 </style>

@@ -1,5 +1,5 @@
 `<template>
-  <router-link to="/" class="category-button">
+  <router-link to="/" class="category-button" :style="{'--color-accent': color_accent}">
     <simple-svg
         :src="imported_svg_path"
         custom-class-name="category-button__icon"
@@ -21,8 +21,9 @@ export default {
     secondary_text: {
       String
     },
-    secondary_text_color: {
-      String
+    color_accent: {
+      String,
+      require: true
     },
     icon_name: {
       String,
@@ -31,7 +32,7 @@ export default {
   },
   data() {
     return {
-      secondary_text_style: `color:${this.secondary_text_color}`,
+      secondary_text_style: `color:${this.color_accent}`,
       imported_svg_path: require(`@/assets/images/svg/${this.icon_name}.svg`)
     }
   },
@@ -49,8 +50,8 @@ export default {
   gap: 20px;
   padding: 0 40px;
   width: 435px;
-  height: 300px;
-  background: linear-gradient(300deg, #9D62E8 30%, #E94C5E 100%);
+  height: 280px;
+  background: linear-gradient(330deg, #9D62E8 20%, var(--color-accent) 110%);
   border-radius: $border-radius;
   box-sizing: border-box;
   transition: 200ms ease-in;
