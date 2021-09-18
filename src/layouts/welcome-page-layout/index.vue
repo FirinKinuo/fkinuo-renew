@@ -48,11 +48,21 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
+  gap: 10%;
   height: 100%;
-  padding: 0 0 0 40px;
   &__header {
-    margin: 0 0 0 50px;
+    position: relative;
+    margin: 0 0 0 70px;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -20px;
+      width: 10px;
+      background: $red;
+      height: 100%;
+    }
   }
 
   &__title {
@@ -69,7 +79,25 @@ export default {
   &__body {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 40px 100px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .welcome-page {
+    &__header {
+      margin: 0 0 0 35px;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    &__body {
+      gap: 30px;
+    }
   }
 }
 </style>

@@ -1,4 +1,4 @@
-`<template>
+<template>
   <router-link to="/" class="category-button" :style="{'--color-accent': color_accent}">
     <simple-svg
         :src="imported_svg_path"
@@ -48,13 +48,13 @@ export default {
   justify-content: center;
   align-items: start;
   gap: 20px;
-  padding: 0 40px;
-  width: 435px;
-  height: 280px;
+  padding: 25px 40px;
+  width: 40%;
+  max-height: 230px;
   background: linear-gradient(330deg, #9D62E8 20%, var(--color-accent) 110%);
   border-radius: $border-radius;
   box-sizing: border-box;
-  transition: 200ms ease-in;
+  transition: 400ms;
 
   &__name {
     color: #fff;
@@ -65,9 +65,27 @@ export default {
   ::v-deep & {
     &__icon {
       width: 100px !important;
-      height: 100px !important;
       fill: white;
+
     }
   }
 }
-</style>`
+
+@media screen and (max-width: 1000px) {
+  .category-button {
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    height: 90px;
+    width: 90%;
+    padding: 0 20px;
+    background: $dark;
+
+    ::v-deep & {
+      &__icon {
+        width: 50px !important;
+     }
+    }
+  }
+}
+</style>

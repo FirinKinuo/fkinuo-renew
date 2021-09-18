@@ -33,7 +33,9 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     background-image: $main-art-url;
+    background-size: cover;
     filter: blur(20px) brightness(50%);
+    transition: 200ms ease-in;
     transform: scale(1.1);
     position: fixed;
     width: 100%;
@@ -52,4 +54,23 @@ export default {
     background-image: $main-art-url;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .main-layout {
+    padding: 0;
+
+    &__image {
+      width: 0;
+    }
+
+    &__background {
+      filter: blur(2px);
+      transform: scale(1.01);
+      background-position: 35% center;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
 </style>
