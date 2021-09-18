@@ -11,6 +11,14 @@
 
 export default {
   name: 'App',
+  mounted() {
+    const setHtmlWindowHeight = () => {
+      const html = document.querySelector('html')
+      html.style.height = `${window.innerHeight}px`
+    };
+    setHtmlWindowHeight();
+    window.addEventListener('resize', setHtmlWindowHeight);
+  }
 }
 </script>
 
@@ -21,6 +29,7 @@ export default {
 :root {
   font-size: 20px;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -40,5 +49,7 @@ export default {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
 }
 </style>

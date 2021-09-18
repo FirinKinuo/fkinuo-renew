@@ -1,16 +1,14 @@
 <template>
   <div class="main-layout">
     <div class="main-layout__image"></div>
-    <v-content-layout/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import VContentLayout from "@/layouts/content-layout";
 
 export default {
   name: "v-main-layout",
-  components: {VContentLayout}
 }
 </script>
 
