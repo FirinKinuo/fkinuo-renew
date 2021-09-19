@@ -50,6 +50,7 @@ export default {
   justify-content: center;
   gap: 10%;
   height: 100%;
+
   &__header {
     position: relative;
     margin: 0 0 0 70px;
@@ -92,11 +93,34 @@ export default {
 
     &__title {
       font-size: 1.8rem;
-      color: white;
     }
 
     &__body {
       gap: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .welcome-page {
+    &__title {
+      color: white;
+    }
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .welcome-page {
+    gap: 1%;
+
+    &__header {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    &__title {
+      font-size: 1.6rem;
     }
   }
 }
