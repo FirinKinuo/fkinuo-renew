@@ -2,7 +2,7 @@
   <div class="welcome-page">
     <div class="welcome-page__header">
       <h1 class="welcome-page__title">Welcome, I’m Firin Kinuo</h1>
-      <h4 class="welcome-page__subtitle">Backend Python Developer</h4>
+      <h4 class="welcome-page__subtitle"></h4>
     </div>
     <div class="welcome-page__body">
       <v-category-button
@@ -31,6 +31,7 @@
 
 <script>
 import VCategoryButton from "@/components/category-button";
+import TypeIt from "typeit";
 
 export default {
   name: "v-welcome-page-layout",
@@ -38,6 +39,16 @@ export default {
   beforeCreate() {
     document.title = "★Welcome★"
   },
+  mounted() {
+    new TypeIt(".welcome-page__subtitle", {
+      strings: ['#Backend Python Developer', '#Sometimes Vue Developer', '#Anime Lover', '#Marisa Lover'],
+      speed: 50,
+      startDelay: 200,
+      nextStringDelay: 3000,
+      breakLines: false,
+      loop: true,
+    }).go();
+  }
 }
 </script>
 
