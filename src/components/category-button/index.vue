@@ -1,5 +1,6 @@
 <template>
-  <router-link to="/" class="category-button" :style="{'--color-accent': color_accent}">
+  <div @click="$emit('click')" class="category-button" :style="{'--color-accent': color_accent}">
+    <div class="category-button__background"></div>
     <simple-svg
         :src="imported_svg_path"
         custom-class-name="category-button__icon"
@@ -7,7 +8,7 @@
     <span class="category-button__name">
       {{ primary_text }} <span :style="secondary_text_style">{{ secondary_text }}</span>
     </span>
-  </router-link>
+  </div>
 </template>
 
 <script>
@@ -43,6 +44,7 @@ export default {
 @import "src/assets/scss/variables";
 
 .category-button {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,22 +53,65 @@ export default {
   padding: 25px 40px;
   width: 40%;
   max-height: 230px;
-  background: linear-gradient(330deg, #9D62E8 20%, var(--color-accent) 110%);
   border-radius: $border-radius;
   box-sizing: border-box;
-  transition: 400ms;
+  overflow: hidden;
+  z-index: 0;
+  cursor: pointer;
+
+  & * {
+    transition: 400ms;
+  }
+
+  &:hover & {
+    &__background {
+      &:before {
+        left: 0;
+        width: 100%;
+      }
+    }
+
+    &__name {
+      & * {
+        color: white !important;
+      }
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(330deg, #9D62E8 20%, var(--color-accent) 110%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      width: 0;
+      height: 100%;
+      background-color: var(--color-accent);
+      transition: 200ms ease-out;
+    }
+  }
 
   &__name {
+    position: relative;
     color: #fff;
     font-size: 2.2rem;
     font-weight: bold;
+    left: 0;
+    overflow: hidden;
   }
 
   ::v-deep & {
     &__icon {
       width: 100px !important;
       fill: white;
-
     }
   }
 }
@@ -84,7 +129,7 @@ export default {
     ::v-deep & {
       &__icon {
         width: 50px !important;
-     }
+      }
     }
   }
 }
