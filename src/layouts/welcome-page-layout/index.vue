@@ -9,22 +9,25 @@
           primary_text="About"
           secondary_text="me"
           color_accent="#39FF71"
-          icon_name="about_me"/>
+          icon_name="about_me"
+          @click="$router.push('about_me')"/>
+      <v-category-button
+          primary_text="Contact"
+          secondary_text="me"
+          color_accent="#FF25A8"
+          icon_name="contact_me"
+          @click="$router.push('contact')"/>
       <v-category-button
           primary_text="My"
           secondary_text="projects"
           color_accent="#00E5F3"
-          icon_name="github"/>
+          icon_name="github"
+          @click="redirectTo('https://git.fkinuo.ru')"/>
       <v-category-button
           primary_text="Some"
           secondary_text="Marisa"
           color_accent="#FAFF00"
           icon_name="sparkles"/>
-      <v-category-button
-          primary_text="Contact"
-          secondary_text="me"
-          color_accent="#FF25A8"
-          icon_name="contact_me"/>
     </div>
   </div>
 </template>
@@ -39,9 +42,18 @@ export default {
   beforeCreate() {
     document.title = "★Welcome★"
   },
+  methods: {
+    /**
+     * Перенаправляет на укзанный URL
+     * @param {string} url - ссылка для перехода
+     */
+    redirectTo (url) {
+      window.location = url;
+    }
+  },
   mounted() {
     new TypeIt(".welcome-page__subtitle", {
-      strings: ['#Backend Python Developer', '#Sometimes Vue Developer', '#Anime Lover', '#Marisa Lover'],
+      strings: ['#Backend Python Developer', '#Sometimes Vue Developer', '#Marisa Best Waifu', '#Anime Lover'],
       speed: 50,
       startDelay: 200,
       nextStringDelay: 3000,
@@ -122,13 +134,7 @@ export default {
 
 @media screen and (max-height: 700px) {
   .welcome-page {
-    gap: 1%;
-
-    &__header {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
+    gap: 4%;
 
     &__title {
       font-size: 1.6rem;
