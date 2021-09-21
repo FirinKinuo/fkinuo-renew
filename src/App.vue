@@ -24,8 +24,7 @@ export default {
 
 <style lang="scss">
 @import "src/assets/scss/variables";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&display=swap');
 :root {
   font-size: 20px;
 }
@@ -46,7 +45,7 @@ export default {
 }
 
 #app {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
